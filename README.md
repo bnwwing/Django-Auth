@@ -29,3 +29,5 @@ user: 与User是1对1关系
 org：用户名
 telephone: 电话
 mod_date: 最后修改日期。系统自动生成
+
+注：前端页面有待完善。
