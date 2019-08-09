@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/login.css' %}"/>
+</head>
+<body>
+{% block content %}
+<h1>Login</h1>
+{% if message %}
+ {{ message }}
+{% endif %}
+<div class="form-wrapper">
+   <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% for field in form %}
+           <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+             <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+           </div>
+        {% endfor %}
+      <div class="button-wrapper">
+         <input class="bu" type="submit" value="Go" />
+      </div>
+   </form>
+    <a id="re" href="/accounts/register">Register</a>
+</div>
+{% endblock %}
+</body>
+</html>
